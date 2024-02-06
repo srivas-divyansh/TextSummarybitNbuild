@@ -15,9 +15,11 @@ def process_pdf(pdf_data):
         reader = PdfReader(BytesIO(pdf_data))
         txt = ""
         summary = ""
+        print("Reading pages")
         for i in range(len(reader.pages)):
             page = reader.pages[i]
             txt = page.extract_text()
+            print(i+1, "/", len(reader.pages))
             pt = 'Generate the summary of the following text in atleast 100 words and suggest health precautions that patient should change\n' + txt
             response = palm.generate_text(prompt=pt)
             print(f"{response.result}\n\n")
