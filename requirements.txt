@@ -6,3 +6,4 @@ google-generativeai
 tensorflow
 Gunicorn
 Werkzeug
+protobuf==3.19.6
